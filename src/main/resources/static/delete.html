@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Producto</title>
+</head>
+<body>
+<h1>Eliminar Producto</h1>
+<form action="" method="get" id="myForm">
+    <input type="hidden" id="metodo" name="metodo" value="GET">
+    <label for="id"> Ingresar Id del Producto</label>
+    <input type="number" name="id" id="id" required> <br>
+
+    <button type="button" onclick="sendDelete('api/productos/eliminar')">Eliminar</button>
+</form>
+<script src="js/local.js"></script>
+</body>
+</html>

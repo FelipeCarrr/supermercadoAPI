@@ -59,7 +59,7 @@ public class ProductoController {
             return message.viewMessage(HttpStatus.NOT_FOUND,"error","Product not found!");
         }
     }
-    @RequestMapping(value = "api/productos/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "api/productos/eliminar/{id}", method = RequestMethod.GET)
     public ResponseEntity deleteProducto(@PathVariable Long id){
         Map<String, String> response = new HashMap<>();
         try {
