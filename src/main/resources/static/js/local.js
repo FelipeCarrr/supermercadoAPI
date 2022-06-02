@@ -189,5 +189,54 @@ async function sendSearch(path){
     console.log(await request.text())
 }
 
+function verProducto(id){
+    var settings={
+        method: 'GET',
+        headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    }
+    fetch("api/productos/"+id,settings)
+    .then(response => response.json())
+    .then(function(producto){
+        
+        var cadena='';
+        
+        if(producto){
+            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-user-pen"></i>Visualizar Productos</h1></div>'+
+            '<ul class="list-group">'+
+            '<li class="list-group-item">Codigo del Producto:'+producto.codigoPro+'</li>'+
+            '<li class="list-group-item">Nombre: '+producto.nombre+'</li>'+
+            '<li class="list-group-item">Valor del Producto: '+producto.valorProducto+'</li>'+
+            '<li class="list-group-item">Tipo de Producto: '+producto.tipoProducto+'</li>'+
+            '<li class="list-group-item">Cantidad: '+producto.cantidad+'</li>'+
+            '</ul>'+
+            '<br>'
+         }
+         document.getElementById("contentModal").innerHTML=cadena;
+         var myModal = new bootstrap.Modal(document.getElementById('modalProducto'))
+         myModal.toggle();
+        
+    })
+}
+
+function alertas(mensaje,tipo){
+    var color=""; 
+    if(tipo == 1 ){//success verde
+        color = "success"
+
+    }
+    else{//danger rojo
+        color = "danger"
+
+    }
+    var alerta = '<div class="alert alert-'+color+' alert-dismissible fade show" role="alert">'+
+                   '<strong><i class="fa-solid fa-triangle-exclamation"></i></strong>'+ 
+                   mensaje+
+                   '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'+
+                 '</div>';
+    document.getElementById("datos").innerHTML=alerta;
 
 
+}
