@@ -19,17 +19,12 @@ public class ProductoController {
     private Message message = new Message();
 
     @RequestMapping(value = "api/productos/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Producto> getProducto(@PathVariable Long id){
+    public Optional<Producto> getProducto(@PathVariable Long id){
         Optional<Producto> foundProducto = productoRepository.findById(id);
         if (foundProducto.isPresent()){
-            return ResponseEntity.ok(foundProducto.get());
+            return foundProducto;
         }
-        Map<String,String> errorResponse = new LinkedHashMap<>();
-        errorResponse.put("error","Not found");
-        errorResponse.put("message", "Producto not found");
-        errorResponse.put("status", HttpStatus.NOT_FOUND.toString());
-        return new ResponseEntity(errorResponse, HttpStatus.NOT_FOUND);
-
+        return null;
     }
     @RequestMapping(value = "api/productos", method = RequestMethod.POST)
     public Producto createProducto(@RequestBody Producto producto){
@@ -59,7 +54,7 @@ public class ProductoController {
             return message.viewMessage(HttpStatus.NOT_FOUND,"error","Product not found!");
         }
     }
-    @RequestMapping(value = "api/productos/eliminar/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "api/productos/{id}", method = RequestMethod.DELETE)
     public ResponseEntity deleteProducto(@PathVariable Long id){
         Map<String, String> response = new HashMap<>();
         try {
