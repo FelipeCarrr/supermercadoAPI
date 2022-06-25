@@ -68,8 +68,8 @@ function listar(){
           '<td>'+producto.tipoProducto+'</td>'+
           '<td>'+producto.cantidad+'</td>'+
           '<td>'+
-            '<button type="button" class="btn btn-danger" onclick="eliminarProducto(\''+producto.id+'\')"><i class="fa-solid fa-user-minus"></i></button>'+
-            '<a href="#" onclick="traerModificarProducto(\''+producto.id+'\')" class="btn btn-outline-warning"><i class="fa-solid fa-user-pen"></i></a>'+
+            '<button type="button" class="btn btn-danger" onclick="eliminarProducto(\''+producto.id+'\')"><i class="fa-solid fa-trash"></i></button>'+
+            '<a href="#" onclick="traerModificarProducto(\''+producto.id+'\')" class="btn btn-outline-warning"><i class="fa-solid fa-arrows-rotate"></i></a>'+
             '<a href="#" onclick="verProducto(\''+producto.id+'\')"class="btn btn-outline-info"><i class="fa-solid fa-eye"></i></a>'+
           '</td>'+
         '</tr>';
@@ -93,7 +93,7 @@ function traerModificarProducto(id){
         var cadena='';
         
         if(producto){
-            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-user-pen"></i>Modificar Productos</h1></div>'+
+            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-arrows-rotate"></i>Modificar Productos</h1></div>'+
             '<form action="" method="post" id="myForm">'+
                 '<input type="hidden" name="id" id="id" value="'+producto.id+'">'+
                 '<label for="codigoPro" class="form-label">Codigo</label>'+
@@ -204,7 +204,7 @@ function verProducto(id){
         var cadena='';
         
         if(producto){
-            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-user-pen"></i>Visualizar Productos</h1></div>'+
+            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Productos</h1></div>'+
             '<ul class="list-group">'+
             '<li class="list-group-item">Codigo del Producto:'+producto.codigoPro+'</li>'+
             '<li class="list-group-item">Nombre: '+producto.nombre+'</li>'+
