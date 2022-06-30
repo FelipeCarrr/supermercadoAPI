@@ -28,5 +28,8 @@ public class Producto {
     @Column(nullable = false, length = 10)
     private int cantidad;
 
+    @ManyToOne
+    @JoinColumn(name = "CAJERO_ID")
+    private User cajero;
 
 }

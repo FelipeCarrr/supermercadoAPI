@@ -1,8 +1,11 @@
 package com.supermercado.producto.controllers;
 
 import com.supermercado.producto.entity.Producto;
+import com.supermercado.producto.entity.User;
 import com.supermercado.producto.repository.ProductoRepository;
+import com.supermercado.producto.repository.UserRepository;
 import com.supermercado.producto.util.Message;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,8 @@ public class ProductoController {
 
     @Autowired
     private ProductoRepository productoRepository;
+    @Autowired
+    private UserRepository userRepository;
     private Message message = new Message();
 
     @RequestMapping(value = "api/productos/{id}", method = RequestMethod.GET)
@@ -26,13 +31,25 @@ public class ProductoController {
         }
         return null;
     }
-    @RequestMapping(value = "api/productos", method = RequestMethod.POST)
-    public Producto createProducto(@RequestBody Producto producto){
-        return productoRepository.save(producto);
+    @RequestMapping(value = "api/productos/{id_cajero}", method = RequestMethod.POST)
+    public ResponseEntity createProducto(@RequestBody Producto producto,@PathVariable Long id_cajero){
+        try {
+            User cajero = userRepository.getById(id_cajero);
+            producto.setCajero(cajero);
+            productoRepository.save(producto);
+            return message.viewMessage(HttpStatus.OK,"success","product saved success!!");
+
+        }catch (Exception e){
+            return message.viewMessage(HttpStatus.NOT_FOUND,"error","Cajero not found!");
+        }
+
+
+
     }
 
     @RequestMapping(value = "api/productos", method = RequestMethod.GET)
     public List<Producto> listProductos(){
+        System.out.println(productoRepository.findAll());
 
         return productoRepository.findAll();
     }

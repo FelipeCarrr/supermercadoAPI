@@ -3,6 +3,7 @@ package com.supermercado.producto.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -23,4 +24,6 @@ public class User {
 
     @Column(name = "last_name",nullable = false,length = 100)
     private String lastName;
+
+
 }

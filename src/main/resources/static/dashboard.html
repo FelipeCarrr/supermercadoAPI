@@ -38,7 +38,7 @@
                   <div id ="datos"> </div>
                   <div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-list"></i>Listado de Productos</h1></div>
                   
-                  <a href="register.html" class="btn btn-outline-success"><i class="fa-brands fa-product-hunt"></i></a>
+                  <a href="registerP.html" class="btn btn-outline-success"><i class="fa-brands fa-product-hunt"></i></a>
                   <table class="table table-hover">
 
                     <thead>
@@ -49,24 +49,46 @@
                         <th scope="col">Precio</th>
                         <th scope="col">Tipo De Producto</th>
                         <th scope="col">Cantidad</th>
-
+                        <th scope="col">Cajero</th>
                       </tr>
                     </thead>
-                    <tbody id = "listar">
-                    
+                    <tbody id = "listar" >
+                
                     </tbody>
                   </table>
                 </div>
             </div>
           </div>
+        <div class="card-body">
+            <div id ="datos_1"> </div>
+            <div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-list"></i>Listado de Usuarios</h1></div>
+
+            <a href="login.html" class="btn btn-outline-success"><i class="fa-solid fa-user-plus"></i></a>
+            <table class="table table-hover">
+
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+                </thead>
+                <tbody id = "listarUsu">
+
+                </tbody>
           
           
         <script src="js/local.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script>
           listar();
+          listarUsu();
+
         </script>
-        <!-- Modal -->
+        <!-- Modal Producto -->
         <div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -75,6 +97,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body" id="contentModal">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Usuario -->
+        <div class="modal fade" id="modalUsurio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Gestion De Usuarios</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="contentModal_1">
                 
               </div>
             </div>
