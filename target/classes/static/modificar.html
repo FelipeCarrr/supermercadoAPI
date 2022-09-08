@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Producto</title>
+</head>
+<body>
+<h1>Modificar Productos</h1>
+<form action="" method="put" id="myForm">
+
+    <input type="hidden" id="metodo" name="metodo" value="POST">
+    <label for="id"> Ingresar Id</label>
+    <input type="number" name="id" id="id" required> <br>
+    <label for="codigoPro">Codigo del Producto</label>
+    <input type="number" name="codigoPro" id="codigoPro" required> <br>
+    <label for="nombre">Nombre del Producto</label>
+    <input type="text" name="nombre" id="nombre" required> <br>
+    <label for="valorProducto">Valor del Producto</label>
+    <input type="text" name="valorProducto" id="valorProducto" required> <br>
+    <label for="tipoProducto">Tipo de Producto</label>
+    <input type="text" id="tipoProducto" name="tipoProducto" required> <br>
+    <label for="cantidad">Cantidad</label>
+    <input type="number" name="cantidad" id="cantidad" required> <br>
+
+    <button type="button" onclick="sendData('api/productos')">Modificar</button>
+
+
+
+</form>
+<script src="js/local.js"></script>
+</body>
+</html>
