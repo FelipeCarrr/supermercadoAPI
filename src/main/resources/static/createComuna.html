@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Comuna</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="icon" href="2552166.ico">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a href=""><img src="https://cdn-icons-png.flaticon.com/512/2552/2552166.png" alt="Icono" width="50" height="50"></a>
+
+          <a class="navbar-brand" href="#">AFNY</a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="dashboard.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="listar()">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h1>Crear una Comuna</h1>
+            </div>
+            <div class="card-body">
+                <form action="" method="post" id="myForm">
+
+                    <input type="hidden" id="metodo" name="metodo" value="POST">
+                    <label for="cod_comuna" class="form-label">Codigo de la Comuna</label>
+                    <input type="number" class="form-control" name="cod_comuna" id="cod_comuna" required> <br>
+                    <label for="nombre" class="form-label">Nombre de la Comuna</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" required> <br>
+                    <label for="kms_s" class="form-label">KMS_2</label>
+                    <input type="number" class="form-control" name="kms_s" id="kms_s" required> <br>
+                    <br>
+            
+                    <button type="button" class="btn btn-info" onclick="sendComuna('api/comunas')">Crear</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+<script src="js/comunas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ <!-- Modal -->
+ <div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Gestion De Productos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="contentModal">
+        
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

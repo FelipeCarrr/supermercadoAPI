@@ -32,15 +32,6 @@
                     <a class="nav-link" href="clientes.html" onclick="listarClientes()">Clientes</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="proveedores.html" onclick="listarProveedores()">Proveedores</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="detalle.html" onclick="listarDetalles()">Detalle</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="factura.html" onclick="listarFacturas()">Facturas</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="#" onclick="salir()">Logout</a>
                   </li>
                 </ul>
@@ -53,45 +44,45 @@
                   <h1>Bienvenido!!!</h1>
                 </div>
                 <div class="card-body">
-                  <div id ="datos"> </div>
-                  <div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-list"></i>Listado de Articulos</h1></div>
-                  
-                  <a href="registerP.html" class="btn btn-outline-success"><i class="fa-brands fa-product-hunt"></i></a>
-                  <table class="table table-hover">
-
-                    <thead>
-                      <tr>
-                        <th scope="col">Cod. Articulo</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Valor</th>
-                        <th scope="col">Talla</th>
-                        <th scope="col">Color</th>
-                        <th scope="col">Nit</th>
-                        <th scope="col">Acción</th>
-                      </tr>
-                    </thead>
-                    <tbody id = "listar" >
-                
-                    </tbody>
-                  </table>
-                </div>
-            </div>
-          </div>
+                    <div id ="datos_1"> </div>
+                    <div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-list"></i>Detalle Factura</h1></div>
+        
+                    <a href="login.html" class="btn btn-outline-success"><i class="fa-solid fa-user-plus"></i></a>
+                    <table class="table table-hover">
+        
+                        <thead>
+                        <tr>
+                            <th scope="col">Ordinal</th>
+                            <th scope="col">Consecutivo</th>
+                            <th scope="col">Codigo del Articulo</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio de Venta</th>
+                            <th scope="col">Subtotal</th>    
+                            <th scope="col">Descuento</th>           
+                            <th scope="col">Action</th>
+        
+                        </tr>
+                        </thead>
+                        <tbody id = "listarDetalles">
+        
+                        </tbody>
+                    </table>
+                </div>   
           
           
-        <script src="js/local.js"></script>
+        <script src="js/detalle.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script>
-          listar();
-          listarUsu();
+          listarDetalles();
+    
 
         </script>
-        <!-- Modal Producto -->
-        <div class="modal fade" id="modalArticulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal Clientes -->
+        <div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Gestion De Articuloss</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Gestinar Detalles</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body" id="contentModal">
