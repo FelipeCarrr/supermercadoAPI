@@ -139,7 +139,7 @@ function verBarrio(cod_barrio){
         var cadena='';
         
         if(barrio){
-            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Barrios</h1></div>'+
+            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Barrio</h1></div>'+
             '<ul class="list-group">'+
             '<li class="list-group-item">Codigo de la Comuna: '+ barrio.comuna.cod_comuna+'</li>'+
             '<li class="list-group-item">Codigo del Barrio: '+ barrio.cod_barrio+'</li>'+

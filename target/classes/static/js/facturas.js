@@ -22,7 +22,7 @@ function listarFacturas(){
           '<td>'+factura.descuento+'</td>'+
           '<td>'+factura.total+'</td>'+
           '<td>'+
-            '<button type="button" class="btn btn-danger" onclick="eliminarComuna(\''+factura.consecutivo+'\')"><i class="fa-solid fa-trash"></i></button>'+
+            '<button type="button" class="btn btn-danger" onclick="eliminarFactura(\''+factura.consecutivo+'\')"><i class="fa-solid fa-trash"></i></button>'+
             '<a href="#" onclick="traerModificarComuna(\''+factura.consecutivo+'\')" class="btn btn-outline-warning"><i class="fa-solid fa-arrows-rotate"></i></a>'+
             '<a href="#" onclick="verFactura(\''+factura.consecutivo+'\')"class="btn btn-outline-info"><i class="fa-solid fa-eye"></i></a>'+
           '</td>'+
@@ -111,7 +111,7 @@ async function modificarComuna(cod_comuna){
     modal.hide();
 }
 
-function eliminarProducto(id){
+function eliminarFactura(consecutivo){
     
     var settings={
         method: 'DELETE',
@@ -119,15 +119,15 @@ function eliminarProducto(id){
             'Accept': 'application/json',
         },
     }
-    fetch("api/productos/"+id,settings)
+    fetch("api/facturas/"+consecutivo,settings)
     .then(response => response.json())
     .then(function(data){
-        listar()
-        alertas("Se ha Eliminado el producto Exitosamente!",2)
+        listarFacturas()
+        alertas("Se ha Eliminado la Factura Exitosamente!",2)
     })
 }
 
-function verFactura(cod_comuna){
+function verFactura(consecutivo){
     
     var settings={
         method: 'GET',
@@ -146,13 +146,15 @@ function verFactura(cod_comuna){
             cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Factura</h1></div>'+
             '<ul class="list-group">'+
             '<li class="list-group-item">Consecutivo: '+ factura.consecutivo+'</li>'+
-            '<li class="list-group-item">Fecha de la factura: '+ comuna.nombre+'</li>'+
-            '<li class="list-group-item">KMS_2: '+ comuna.kms_s+'</li>'+
+            '<li class="list-group-item">Fecha de la factura: '+ factura.fecha+'</li>'+
+            '<li class="list-group-item">Documento: '+ factura.documento.documento+'</li>'+
+            '<li class="list-group-item">Descuento: '+ factura.descuento+'</li>'+
+            '<li class="list-group-item">Total: '+ factura.total+'</li>'+
             '</ul>'+
             '<br>'
          }
-         document.getElementById("contentModal_1").innerHTML=cadena;
-         var myModal = new bootstrap.Modal(document.getElementById('modalComuna'))
+         document.getElementById("contentModal").innerHTML=cadena;
+         var myModal = new bootstrap.Modal(document.getElementById('modalFactura'))
          myModal.toggle();
         
     })

@@ -114,7 +114,7 @@ function verCliente(documento){
         var cadena='';
         
         if(cliente){
-            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Clientes</h1></div>'+
+            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Cliente</h1></div>'+
             '<ul class="list-group">'+
             '<li class="list-group-item">Documento: ' +cliente.documento+'</li>'+
             '<li class="list-group-item">Apellidos: '+cliente.nombre1+' '+cliente.nombre2+'</li>'+
@@ -124,7 +124,7 @@ function verCliente(documento){
             '<li class="list-group-item">Celular: '+ cliente.celular+'</li>'+
             '<li class="list-group-item">Email: '+cliente.email+'</li>'+
             '<li class="list-group-item">Cod. Comuna: '+cliente.comuna.cod_comuna+'</li>'+
-            '<li class="list-group-item">Cod. : Barrio'+cliente.barrio.cod_barrio+'</li>'+
+            '<li class="list-group-item">Cod. Barrio: '+cliente.barrio.cod_barrio+'</li>'+
             '</ul>'+
             '<br>'
          }

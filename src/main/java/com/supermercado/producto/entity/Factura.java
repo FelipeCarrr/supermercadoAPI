@@ -16,7 +16,7 @@ public class Factura {
     private long consecutivo;
 
     @Column(nullable = false)
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
 
     @ManyToOne

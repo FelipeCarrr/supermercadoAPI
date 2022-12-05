@@ -24,9 +24,9 @@ function listarDetalles(){
           '<td>'+detalle.subtotal+'</td>'+
           '<td>'+detalle.descuento+'</td>'+
           '<td>'+
-            '<button type="button" class="btn btn-danger" onclick="eliminarComuna(\''+detalle.consecutivo+'\')"><i class="fa-solid fa-trash"></i></button>'+
-            '<a href="#" onclick="traerModificarComuna(\''+detalle.consecutivo+'\')" class="btn btn-outline-warning"><i class="fa-solid fa-arrows-rotate"></i></a>'+
-            '<a href="#" onclick="verComuna(\''+detalle.consecutivo+'\')"class="btn btn-outline-info"><i class="fa-solid fa-eye"></i></a>'+
+            '<button type="button" class="btn btn-danger" onclick="elimminarDetalle(\''+detalle.consecutivo+'\')"><i class="fa-solid fa-trash"></i></button>'+
+            '<a href="#" onclick="traerModificarDetalle(\''+detalle.consecutivo+'\')" class="btn btn-outline-warning"><i class="fa-solid fa-arrows-rotate"></i></a>'+
+            '<a href="#" onclick="verDetalle(\''+detalle.ordinal+'\')"class="btn btn-outline-info"><i class="fa-solid fa-eye"></i></a>'+
           '</td>'+
         '</tr>';
          }
@@ -107,7 +107,7 @@ function eliminarProducto(id){
     })
 }
 
-function verBarrio(cod_comuna){
+function verDetalle(ordinal){
     
     var settings={
         method: 'GET',
@@ -116,23 +116,27 @@ function verBarrio(cod_comuna){
             'Content-Type': 'application/json'
         },
     }
-    fetch("api/comunas/"+cod_comuna,settings)
+    fetch("api/detalles/"+ordinal,settings)
     .then(response => response.json())
-    .then(function(comuna){
+    .then(function(detalle){
         
         var cadena='';
         
-        if(comuna){
-            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Comunas</h1></div>'+
+        if(detalle){
+            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Detalle</h1></div>'+
             '<ul class="list-group">'+
-            '<li class="list-group-item">Codigo de la Comuna: '+ comuna.cod_comuna+'</li>'+
-            '<li class="list-group-item">Nombre de la Comuna: '+ comuna.nombre+'</li>'+
-            '<li class="list-group-item">KMS_2: '+ comuna.kms_s+'</li>'+
+            '<li class="list-group-item">Ordinal: '+ detalle.ordinal+'</li>'+
+            '<li class="list-group-item">Consecutivo: '+ detalle.consecutivo+'</li>'+
+            '<li class="list-group-item">Codigo del Articulo: '+ detalle.articulo.cod_articulo+'</li>'+
+            '<li class="list-group-item">Cantidad: '+ detalle.cantidad+'</li>'+
+            '<li class="list-group-item">Precio de Venta: '+ detalle.precio_venta+'</li>'+
+            '<li class="list-group-item">Descuento: '+ detalle.descuento+'</li>'+
+            '<li class="list-group-item">Subtotal: '+ detalle.subtotal+'</li>'+
             '</ul>'+
             '<br>'
          }
-         document.getElementById("contentModal_1").innerHTML=cadena;
-         var myModal = new bootstrap.Modal(document.getElementById('modalComuna'))
+         document.getElementById("contentModal").innerHTML=cadena;
+         var myModal = new bootstrap.Modal(document.getElementById('modalDetalle'))
          myModal.toggle();
         
     })

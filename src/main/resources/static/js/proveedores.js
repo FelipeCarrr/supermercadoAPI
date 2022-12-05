@@ -132,11 +132,30 @@ function verProveedor(nit){
             '</ul>'+
             '<br>'
          }
-         document.getElementById("contentModal_1").innerHTML=cadena;
+         document.getElementById("contentModal").innerHTML=cadena;
          var myModal = new bootstrap.Modal(document.getElementById('modalProveedor'))
          myModal.toggle();
         
     })
+}
+
+async function sendProveedor(path){
+    var myForm = document.getElementById("myForm");
+    var formData = new FormData(myForm);
+    var jsonData = {};
+    for(var [k, v] of formData){//convertimos los datos a json
+        jsonData[k] = v;
+    }
+    const request = await fetch(path, {
+        method: 'POST',
+        headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonData)
+    });
+    myForm.reset();
+    console.log(await request.text())
 }
 
 function alertas(mensaje,tipo){

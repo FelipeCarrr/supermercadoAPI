@@ -14,8 +14,8 @@ public class Detalle {
     private long consecutivo;
 
     @Id
-    @Column(nullable = false, unique = true, length = 2)
-    private int ordinal;
+    @Column(nullable = false, unique = true, length = 4)
+    private long ordinal;
 
     @ManyToOne
     @JoinColumn(name = "cod_articulo")

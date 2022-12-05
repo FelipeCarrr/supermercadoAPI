@@ -119,7 +119,7 @@ function verComuna(cod_comuna){
         var cadena='';
         
         if(comuna){
-            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Comunas</h1></div>'+
+            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Comuna</h1></div>'+
             '<ul class="list-group">'+
             '<li class="list-group-item">Codigo de la Comuna: '+ comuna.cod_comuna+'</li>'+
             '<li class="list-group-item">Nombre de la Comuna: '+ comuna.nombre+'</li>'+

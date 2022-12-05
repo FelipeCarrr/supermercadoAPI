@@ -9,8 +9,9 @@ import java.util.List;
 @Table(name = "users")
 @Data
 public class User {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(nullable = false, unique = true, length = 50)

@@ -224,7 +224,7 @@ function verUsuario(id){
         var cadena='';
 
         if(usuario){
-            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-user-pen"></i> Visualizar Usuarios</h1></div>'+
+            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-user-pen"></i> Visualizar Usuario</h1></div>'+
             '<ul class="list-group">'+
             '<li class="list-group-item">Nombre: '+usuario.firstName+'</li>'+
             '<li class="list-group-item">Apellido: '+usuario.lastName+'</li>'+
@@ -337,7 +337,7 @@ async function modificarArticulo(cod_articulo){
     modal.hide();
 }
 
-function eliminarProducto(id){
+function eliminarArticulo(cod_articulo){
     validaToken()
     var settings={
         method: 'DELETE',
@@ -345,11 +345,11 @@ function eliminarProducto(id){
             'Accept': 'application/json',
         },
     }
-    fetch("api/productos/"+id,settings)
+    fetch("api/articulos/"+cod_articulo,settings)
     .then(response => response.json())
     .then(function(data){
         listar()
-        alertas("Se ha Eliminado el producto Exitosamente!", 1)
+        alertas("Se ha Eliminado el Articulo Exitosamente!", 1)
     })
 }
 
@@ -387,7 +387,7 @@ function verArticulo(cod_articulo){
         var cadena='';
         
         if(articulo){
-            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Articulos</h1></div>'+
+            cadena = '<div class="p-3 mb-2 bg-secondary text-white"><h1 class="display-5"><i class="fa-solid fa-eye"></i>Visualizar Articulo</h1></div>'+
             '<ul class="list-group">'+
             '<li class="list-group-item">Codigo del Articulo: '+ articulo.cod_articulo+'</li>'+
             '<li class="list-group-item">Descripcion: '+ articulo.descripcion+'</li>'+

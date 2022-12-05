@@ -23,9 +23,9 @@ public class DetalleController {
 
     private Message message = new Message();
 
-    @RequestMapping(value = "api/detalles/{consecutivo}", method = RequestMethod.GET)
-    public Optional<Detalle> getDetalle(@PathVariable Long consecutivo){
-        Optional<Detalle> foundDetalle = detalleRepository.findById(consecutivo);
+    @RequestMapping(value = "api/detalles/{ordinal}", method = RequestMethod.GET)
+    public Optional<Detalle> getDetalle(@PathVariable Long ordinal){
+        Optional<Detalle> foundDetalle = detalleRepository.findById(ordinal);
         if (foundDetalle.isPresent()){
             return foundDetalle;
         }
